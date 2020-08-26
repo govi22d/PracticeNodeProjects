@@ -6,15 +6,16 @@ const bodyparser = require("body-Parser");
 const CourseController = require('./controllers/courses');
 
 const application = express();
-application.use(bodyparser.urlencoded({extended:true}));
+//application.use(bodyparser.urlencoded({extended:true}));
+application.use(bodyparser.json());
 
-application.set("views", path.join(__dirname + "/views/"));
-application.engine("hbs", expressHanlderbars({
-    extname: "hbs",
-    defaultLayout: "mainlayout",
-    layoutsDir: __dirname + "/views/layouts"
-}));
-application.set("view engine", "hbs")
+// application.set("views", path.join(__dirname + "/views/"));
+// application.engine("hbs", expressHanlderbars({
+//     extname: "hbs",
+//     defaultLayout: "mainlayout",
+//     layoutsDir: __dirname + "/views/layouts"
+// }));
+// application.set("view engine", "hbs")
 
 application.get("/", (req, res) => {
     res.send({result:"ok"});
